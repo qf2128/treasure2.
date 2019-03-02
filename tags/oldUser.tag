@@ -1,5 +1,5 @@
 <oldUser>
-<h1>Welcome +'' {this.userName} !</h1>
+<h1>Welcome  {this.userName} !</h1>
 <input type="text" value="" placeholder="input your id?" ref="userId">
 <button type="button" class="btn btn-primary" onclick="{getChrisDataOldId}">Confirm</button>
 <p if={this.stats}> History record: win-{this.stats.wins} lose-{this.stats.losses} <br> games waiting: {this.gameWait}</p>
