@@ -26,7 +26,7 @@ observer.on('userId',(userId)=>{
 newGame(){
     this.state="newGame";
     console.log('this',this)
-       fetch('https://treasure.chrisproctor.net/players/'+ this.userId +'/games/new').then(response => {
+       fetch('http://treasure.chrisproctor.net/players/'+ this.userId +'/games/new').then(response => {
             return response.json();
         }).then(data => {
             var gameId=data.gid
@@ -44,7 +44,7 @@ updateNewGameType(){
    this.gameState=event.target.value
 console.log('select',this.gameState)
    if (this.gameState=="autoplay"){
-       fetch('https://treasure.chrisproctor.net/players/'+ this.userId +'/games/' + this.gameId + '/autoplay').then(response => {
+       fetch('http://treasure.chrisproctor.net/players/'+ this.userId +'/games/' + this.gameId + '/autoplay').then(response => {
             return response.json();
         }).then(data => {
             console.log('autoplay',data)
@@ -56,7 +56,7 @@ console.log('select',this.gameState)
    }
 
    if(this.gameState=="invite"){
-       fetch('https://treasure.chrisproctor.net/players/'+ this.userId +'/games/' + this.gameId).then(response => {
+       fetch('http://treasure.chrisproctor.net/players/'+ this.userId +'/games/' + this.gameId).then(response => {
             return response.json();
         }).then(data => {
             alert("please tell your friend your room Id:" + this.gameId)
