@@ -23,6 +23,8 @@
 </div>
 
 <script>
+var stats=this.stats;
+observer.trigger("stats", stats);
 this.state=""
 observer.on('userId',(userId)=>{
     this.userId=userId;
@@ -82,7 +84,7 @@ console.log('select',this.gameState)
  :scope{}
 
  .container {
-     background-image: url(./asset/login.jpg);
+     background-image: url(./asset/map.jpg);
      background-repeat:no-repeat;
      height:1000px;
    }
