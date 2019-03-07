@@ -43,7 +43,7 @@ startPlay(){
 playCard(){
     this.cardNumber=event.target.name;
   console.log(this.cardNumber)
-    fetch('https://treasure.chrisproctor.net/players/'+ this.userId +'/games/' +this.gameId + '/play/' + this.cardNumber).then(response => {
+    fetch('http://treasure.chrisproctor.net/players/'+ this.userId +'/games/' +this.gameId + '/play/' + this.cardNumber).then(response => {
          return response.json();
      }).then(data => {
          console.log(data)
@@ -56,7 +56,7 @@ playCard(){
              this.youTotalTeasure=data.players[userName].score
          } else {
              alert("robot plays" + data.turns[1].bot + " you and bot play the same card")
-
+             
          }
 
          treasure=data.turns[0].treasure;
