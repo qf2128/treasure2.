@@ -1,19 +1,41 @@
 <login>
 
 <div class="containter">
-    <div class="col-3">
+  <!-- Image part -->
+  <div class="row">
+    <div class="col">
+      <img hide={this.stats} src = "./asset/{welcomeImage}.jpg" alt="ship" style="width:500px;height:500px;" class="center">
+    </div>
+  </div>
 
-    <div class="row-3">
+  <!--Title part -->
+  <div class="row">
+    <h1 class="center2" hide={this.state}> TREASURE </h1>
+  </div>
+
+  <!-- Button part -->
+  <div class="row">
+    <div class="button1">
       <button type="button" class="btn btn-primary" name="button" onclick={stateLogin} hide={this.state} >Log in</button>
+    </div>
+    <div class="button2">
       <button type="button" class="btn btn-primary" name="button" onclick={stateSignup} hide={this.state}>Sign up</button>
-   </div>
-</div>
+    </div>
+  </div>
 
 
 <newUser if={this.state==="stateSignup"}></newUser>
 <oldUser if={this.state==="stateLogin"}></oldUser>
     </div>
+
 <script>
+observer.on("stats", (stats)=>{
+  this.stats=stats
+})
+
+console.log('stats', this.stats)
+
+this.welcomeImage = "pirateship";
 this.state="";
 console.log('state',this.state);
 stateSignup(){
@@ -29,16 +51,35 @@ stateLogin(){
     :scope{}
 
  button{
-
-     font-size:60px;
-
+  font-size:70px;
  }
-p{
- font-size:30px;
+
+ p{
+  font-size:30px;
+ }
+
+ input{
+  font-size:50px;
+ }
+
+ .center{
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   width: 50%;
 }
-input{
- font-size:50px;
-}
+ .center2{
+  text-align: center;
+  width: 100%;
+ }
+
+ .button1{
+   margin-left: 30%;
+ }
+
+ .button2{
+   margin-left: 27%;
+ }
 
 </style>
 </login>

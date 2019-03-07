@@ -1,23 +1,35 @@
 <newUser>
-
-    <input type="text" value="" placeholder="input your new name" ref="userName" hide={this.loninState==="oldUser"}>
-    <button type="button" onclick="{getChrisDataNewId}"  class="btn btn-primary" hide={this.loninState==="oldUser"}>Confirm</button>
-    <oldUser if={this.userId}></oldUser>
+  <div class= "center">
+    <h1 hide={ loginState==="oldUser" || loginState === "readyToGo"}> Ahoy there Matey !</h1>
+  </div>
+  <div class="row">
+    <div class="left">
+      <input type="text" value="" placeholder="input your new name" ref="userName" hide={ loginState==="oldUser" || loginState==="readyToGo"}>
+    </div>
+    <div class="right">
+      <button type="button" onclick="{getChrisDataNewId}"  class="btn btn-primary" hide={ loginState==="oldUser" || loginState==="readyToGo"}>SUBMIT</button>
+    </div>
+    <div show={ loginState==="oldUser"} class="reveal">
+      <h1> Ahoy there {this.userName} !</h1>
+      <h2>This is your User ID: {this.userId} </h2>
+      <p>Remember it well...or else...</p>
+      <button type="button" onclick="{readyToStart}"  class="btn btn-primary" hide={ loginState==="readyToGo"}> CONTINUE</button>
+    </div>
+ <oldUser show={ loginState==="readyToGo"}></oldUser>
 
 <script>
 let tag=this;
 console.log(this);
 
-
 getChrisDataNewId(){
-var userName=this.refs.userName.value;
+   this.userName=this.refs.userName.value;
 
-fetch('http://treasure.chrisproctor.net/players/new/' + userName).then(response => {
+  fetch('http://treasure.chrisproctor.net/players/new/' + userName).then(response => {
         return response.json();
     }).then(data => {
         // Work with JSON data here
         this.userId=data.pid;
-        alert('this is your user id: ' + this.userId + ' please remember')
+        this.loginState="oldUser"
         console.log('64526', data);
         this.treasure={
             users:{
@@ -28,13 +40,40 @@ fetch('http://treasure.chrisproctor.net/players/new/' + userName).then(response 
             }
           }
          this.treasure.users.first.id=this.userId
-        this.update();
-         this.loninState="oldUser"
+         this.update();
     });
-}
 
+  }
+
+readyToStart(){
+  this.loginState="readyToGo"
+}
 </script>
+
+
 <style>
     :scope{}
+input{
+  font-size: 25px;
+}
+
+.center{
+  display: block;
+  margin-left: 30%;
+}
+
+.left{
+  margin-left:30%;
+}
+
+.right{
+  margin-left: 10%;
+}
+
+.reveal{
+ width:100%;
+ text-align: center;
+
+}
 </style>
 </newUser>

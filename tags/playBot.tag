@@ -56,7 +56,7 @@ playCard(){
              this.youTotalTeasure=data.players[userName].score
          } else {
              alert("robot plays" + data.turns[1].bot + " you and bot play the same card")
-             
+
          }
 
          treasure=data.turns[0].treasure;

@@ -1,11 +1,20 @@
 <oldUser>
-<h1>Welcome  {this.userName} !</h1>
-<input type="text" value="" placeholder="input your id?" ref="userId">
-<button type="button" class="btn btn-primary" onclick="{getChrisDataOldId}">Confirm</button>
-<p if={this.stats}> History record: win-{this.stats.wins} lose-{this.stats.losses} <br> games waiting: {this.gameWait}</p>
+ <div hide={this.stats} class="containter">
+ <div class= "center">
+   <h1> Ahoy there  {this.userName} !</h1>
+ </div>
 
-
-<game if={this.stats}></game>
+ <div class="row">
+   <div class="left">
+    <input type="text" value="" placeholder="input your User ID" ref="userId">
+   </div>
+   <div class="right">
+    <button type="button" class="btn btn-primary" onclick="{getChrisDataOldId}">SUBMIT</button>
+ </div>
+   <p if={this.stats}> History record: win-{this.stats.wins} lose-{this.stats.losses} <br> games waiting: {this.gameWait}</p>
+ </div>
+</div>
+ <game if={this.stats}></game>
 
 <script>
 let tag=this;
@@ -34,6 +43,22 @@ getChrisDataOldId(){
 </script>
 
 <style>
+
 :scope{}
+input{
+  font-size: 25px;
+}
+.center{
+    display: block;
+    margin-left: 30%;
+}
+
+.left{
+  margin-left:30%;
+}
+
+.right{
+  margin-left: 10%;
+}
 </style>
 </oldUser>
