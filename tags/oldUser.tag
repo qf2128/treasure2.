@@ -31,14 +31,15 @@ getChrisDataOldId(){
 			this.userName = data.name;
             var userName=this.userName
             this.stats=data.stats;
+            var stats=this.stats;
+            observer.trigger('stats', stats)
             this.gameWait=(data.games_waiting).length
 			console.log('new',data);
 			this.update();
             observer.trigger('userId',userId)
-
+console.log(this.stats)
 		});
 }
-
 
 </script>
 

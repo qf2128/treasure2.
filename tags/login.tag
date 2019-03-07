@@ -3,8 +3,8 @@
 <div class="containter">
   <!-- Image part -->
   <div class="row">
-    <div class="col">
-      <img hide={this.stats} src = "./asset/{welcomeImage}.jpg" alt="ship" style="width:500px;height:500px;" class="center">
+    <div class="col" hide={this.stats}>
+      <img src = "./asset/{welcomeImage}.jpg" alt="ship" style="width:500px;height:500px;" class="center">
     </div>
   </div>
 
@@ -29,11 +29,11 @@
     </div>
 
 <script>
-observer.on("stats", (stats)=>{
+observer.on('stats', (stats)=>{
   this.stats=stats
+  this.update()
 })
 
-console.log('stats', this.stats)
 
 this.welcomeImage = "pirateship";
 this.state="";
