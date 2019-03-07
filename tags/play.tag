@@ -19,9 +19,7 @@ this.allCards=[1,2,3,4,5,6,7,8,9,10,11,12,13]
 this.playState=""
 this.btnCount=0
 console.log(this.cardNumber)
-console.log(this)
-this.gameId=this.parent.gameId;
-this.userId=this.parent.userId;
+
 
 this.turns="1";
 this.youTotalTeasure=0;
@@ -40,6 +38,9 @@ startPlay(){
 
 
 playCard(){
+    this.gameId=this.parent.gameId;
+    this.userId=this.parent.userId;
+    console.log('thhh',this.parent.gameId)
     this.cardNumber=event.target.name;
   console.log(this.cardNumber)
     fetch('http://treasure.chrisproctor.net/players/'+ this.userId +'/games/' +this.gameId + '/play/' + this.cardNumber).then(response => {
