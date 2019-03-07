@@ -43,7 +43,7 @@ startPlay(){
 playCard(){
     this.cardNumber=event.target.name;
   console.log(this.cardNumber)
-    fetch('http://treasure.chrisproctor.net/players/'+ this.userId +'/games/' +this.gameId + '/play/' + this.cardNumber).then(response => {
+    fetch('https://treasure.chrisproctor.net/players/'+ this.userId +'/games/' +this.gameId + '/play/' + this.cardNumber).then(response => {
          return response.json();
      }).then(data => {
          console.log(data)
