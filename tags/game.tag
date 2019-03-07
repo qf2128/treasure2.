@@ -29,6 +29,8 @@
 </div>
 
 <script>
+var stats=this.stats;
+observer.trigger("stats", stats);
 this.state=""
 observer.on('userId',(userId)=>{
     this.userId=userId;
@@ -89,7 +91,7 @@ startGameFriend(){
  :scope{}
 
  .container {
-     background-image: url(./asset/login.jpg);
+     background-image: url(./asset/map.jpg);
      background-repeat:no-repeat;
      height:1000px;
    }
