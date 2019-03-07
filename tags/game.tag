@@ -1,4 +1,7 @@
 <game>
+<div class="container">
+
+
 <p hide={this.state}> Do you want to start a new game to play with a bot or your friend?</p>
 <button type="button" class="btn btn-primary" name="button" onclick={newGame} hide={this.state}>New game</button>
 
@@ -6,6 +9,7 @@
 <button type="button" class="btn btn-primary" name="button" onclick={join} hide={this.state}>Join</button>
 
 <div class="row" if={this.state==="newGame"} hide={this.gameState==="autoplay"} >
+
 <p> choose game type</p>
 <select class="custom-select" name="" onchange={updateNewGameType}>
     <option value="">---</option>
@@ -16,6 +20,7 @@
 
 <button type="button" name="button"  class="btn btn-primary" onclick={resume} hide={this.state}>resume previous game</button>
 <playBot if={this.gameState==="autoplay"}></playBot>
+</div>
 
 <script>
 this.state=""
@@ -71,8 +76,17 @@ console.log('select',this.gameState)
 
 }
 
-
-
 </script>
+
+<style>
+ :scope{}
+
+ .container {
+     background-image: url(./asset/login.jpg);
+     background-repeat:no-repeat;
+     height:1000px;
+   }
+
+</style>
 
 </game>

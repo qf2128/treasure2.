@@ -4,7 +4,7 @@
   <!-- Image part -->
   <div class="row">
     <div class="col">
-      <img src = "./asset/{welcomeImage}.jpg" alt="ship" style="width:500px;height:500px;" class="center">
+      <img hide={this.stats} src = "./asset/{welcomeImage}.jpg" alt="ship" style="width:500px;height:500px;" class="center">
     </div>
   </div>
 
@@ -29,6 +29,12 @@
     </div>
 
 <script>
+observer.on("stats", (stats)=>{
+  this.stats=stats
+})
+
+console.log('stats', this.stats)
+
 this.welcomeImage = "pirateship";
 this.state="";
 console.log('state',this.state);
@@ -63,8 +69,8 @@ stateLogin(){
    width: 50%;
 }
  .center2{
-   margin-left: 40%;
-   margin-right: 50%;
+  text-align: center;
+  width: 100%;
  }
 
  .button1{

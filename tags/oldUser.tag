@@ -1,5 +1,5 @@
 <oldUser>
- <div class="containter">
+ <div hide={this.stats} class="containter">
  <div class= "center">
    <h1> Ahoy there  {this.userName} !</h1>
  </div>
@@ -13,9 +13,8 @@
  </div>
    <p if={this.stats}> History record: win-{this.stats.wins} lose-{this.stats.losses} <br> games waiting: {this.gameWait}</p>
  </div>
-
- <game if={this.stats}></game>
 </div>
+ <game if={this.stats}></game>
 
 <script>
 let tag=this;
