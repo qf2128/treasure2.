@@ -29,15 +29,17 @@ getChrisDataOldId(){
 		}).then(data => {
 			// Work with JSON data here
 			this.userName = data.name;
-            var userName=this.userName
+            var userName=this.userName;
+            console.log('thhis username',userName)
             this.stats=data.stats;
             var stats=this.stats;
-            observer.trigger('stats', stats)
+            observer.trigger('userName', userName);
+            observer.trigger('stats', stats);
             this.gameWait=(data.games_waiting).length
 			console.log('new',data);
 			this.update();
-            observer.trigger('userId',userId)
-console.log(this.stats)
+            observer.trigger('userId',userId);
+
 		});
 }
 

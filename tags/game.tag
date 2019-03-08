@@ -30,9 +30,25 @@
 
 <script>
 this.state=""
+this.userInfo=[]
+
+observer.on('userName',(userName)=>{
+    this.userName=userName;
+    this.userInfo.push({
+        myName:userName
+    })
+    console.log('myName',this.userInfo)
+})
+
 observer.on('userId',(userId)=>{
     this.userId=userId;
+    this.userInfo.push({
+      myId:userId
+  })
+   console.log('myId',this.userInfo)
      });
+
+
 
 newGame(){
     this.state="newGame";
